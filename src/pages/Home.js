@@ -10,7 +10,7 @@ const Home = () => {
     const dispatch = useDispatch()
     const searchRef = useRef();
     const key = "2d4765cd";
-    const API = `https://www.omdbapi.com/?apikey=${key}&s=${searchMovieInput}`
+    const API = `https://www.omdbapi.com/?apikey=${key}&s=${'raghav'}`
 
     useEffect(() => {
         searchMovie();

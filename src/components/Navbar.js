@@ -200,14 +200,14 @@ export default function PrimarySearchAppBar() {
                             </Search>
                         </>
                     )}
-                    {location.pathname === '/profile' && (
+                    {location.pathname === '/movie-details/4524' && (
                         <Typography
                             variant="h6"
                             noWrap
                             component="div"
-                            sx={{ display: { xs: 'none', sm: 'block' } }}
+                            sx={{ display: { xs: 'none', sm: 'block', paddingLeft: "3.5%", fontWeight: '900' } }}
                         >
-                            Profile
+                            Movie Details
                         </Typography>
                     )}
                     <Box sx={{ flexGrow: 1 }} />

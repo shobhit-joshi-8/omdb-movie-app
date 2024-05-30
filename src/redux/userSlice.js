@@ -11,11 +11,13 @@ const initialState = {
     password: '12345678'
   }],
   currentUser: null,
-  movie: [],
+
   dialogState: {
     UpdateUserDialog: false,
   },
-  searchMovieInput: null,
+  searchMovieInput: '',
+  movie: [],
+  movieDetails: null,
 };
 
 const userSlice = createSlice({
@@ -42,13 +44,16 @@ const userSlice = createSlice({
       state.dialogState.UpdateUserDialog = action.payload;
     },
     handleSearch: (state, action) => {
-        state.searchMovieInput = action.payload;
+      state.searchMovieInput = action.payload;
     },
     getSearchMovie: (state, action) => {
-        state.movie = action.payload;
+      state.movie = action.payload;
+    },
+    handleMovieDeatails: (state, action) => {
+      state.movieDetails = action.payload;
     }
   },
 });
 
-export const { register, login, logout, handleUpdateUser, UpdateUserDialog, handleUpdateUserDialog, handleSearch, getSearchMovie } = userSlice.actions;
+export const { register, login, logout, handleUpdateUser, UpdateUserDialog, handleUpdateUserDialog, handleSearch, getSearchMovie, handleMovieDeatails } = userSlice.actions;
 export default userSlice.reducer;
