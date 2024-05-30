@@ -4,6 +4,7 @@ import LoginPage from './onboarding/LoginPage';
 import SignUpPage from './onboarding/SignUpPage';
 import RequiresAuth from './Authorization/Auth';
 import Home from './pages/Home';
+import MovieDetails from './pages/MovieDetails';
 
 function App() {
     return (
@@ -12,7 +13,7 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path='/register' element={<SignUpPage />} />
             <Route path='/home' element={<RequiresAuth><Home /></RequiresAuth>} />
-            {/* <Route path='/profile' element={<RequiresAuth><ProfilePage /></RequiresAuth>} /> */}
+            <Route path='/movie-details/:id' element={<RequiresAuth><MovieDetails /></RequiresAuth>} />
         </Routes>
     );
 }

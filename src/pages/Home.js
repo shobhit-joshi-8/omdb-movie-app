@@ -50,7 +50,7 @@ const Home = () => {
                             Unlimited movies, TV shows and more
                         </Typography>
                         <Grid container gap={1} justifyContent='center' alignItems='center'>
-                            <TextField id="serach-movie" type="search" placeholder='Search Movie...' value={searchMovie} sx={{ backgroundColor: '#fff', borderRadius: 2, width: 400 }}
+                            <TextField id="serach-movie" type="search" placeholder='Search Movie...' defaultValue={searchMovieInput} sx={{ backgroundColor: '#fff', borderRadius: 2, width: 400 }}
                                 inputRef={searchRef}
                             />
                             <Button sx={{ height: '100%', backgroundColor: '#E50914', color: '#fff', padding: 1.9 }}

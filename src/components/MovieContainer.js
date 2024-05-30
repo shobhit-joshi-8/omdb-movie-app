@@ -9,7 +9,6 @@ const MovieContainer = () => {
         <>
             <Grid container width='80%' className="slider-container" >
                     {movie?.length > 0 && movie.map((item) => (
-
                             <MovieCard item={item} />
                     ))}
                 
