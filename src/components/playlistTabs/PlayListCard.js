@@ -1,11 +1,12 @@
 import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Typography } from '@mui/material'
 import React from 'react'
 
-const PlayListCard = () => {
+const PlayListCard = ({moviePlaylist}) => {
+    
   return (
     <>
          <Grid container width='100%' gap={5}>
-            {moviePlaylist?.actionMovies?.map((item, index) => (
+            {moviePlaylist?.map((item, index) => (
                 <Card key={index} sx={{ maxWidth: 345 }}>
                     <CardActionArea>
                         <CardMedia

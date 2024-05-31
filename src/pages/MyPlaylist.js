@@ -6,6 +6,14 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import ActionMovies from '../components/playlistTabs/ActionMovies.js'
 import { Grid } from '@mui/material';
+import ComedyMovies from '../components/playlistTabs/ComedyMovies.js';
+import AnimationMovies from '../components/playlistTabs/AnimationMovies.js';
+import DramaMovies from '../components/playlistTabs/DramaMovies.js';
+import HorrorMovies from '../components/playlistTabs/HorrorMovies.js';
+import RomanceMovies from '../components/playlistTabs/RomanceMovies.js';
+import ScienceFictionMovies from '../components/playlistTabs/ScienceFictionMovies.js';
+import DocumentaryMovies from '../components/playlistTabs/DocumentaryMovies.js';
+
 function CustomTabPanel(props) {
     const { children, value, index, ...other } = props;
 
@@ -55,7 +63,7 @@ export default function BasicTabs() {
                 justifyContent: 'center',
                 alignItems: 'center'
             }}>
-                <Tabs value={value} centered onChange={handleChange} variant="scrollable"
+                <Tabs value={value}  onChange={handleChange} variant="scrollable"
         scrollButtons
         aria-label="visible arrows tabs example"
         sx={{
@@ -95,12 +103,26 @@ export default function BasicTabs() {
                 <ActionMovies />
             </CustomTabPanel>
             <CustomTabPanel value={value} index={1}>
-                Item Two
+                <ComedyMovies />
             </CustomTabPanel>
             <CustomTabPanel value={value} index={2}>
-                Item Three
+                <DramaMovies />
             </CustomTabPanel>
-
+            <CustomTabPanel value={value} index={3}>
+                <HorrorMovies />
+            </CustomTabPanel>
+            <CustomTabPanel value={value} index={4}>
+                <RomanceMovies />
+            </CustomTabPanel>
+            <CustomTabPanel value={value} index={5}>
+                <ScienceFictionMovies />
+            </CustomTabPanel>
+            <CustomTabPanel value={value} index={6}>
+                <AnimationMovies />
+            </CustomTabPanel>
+            <CustomTabPanel value={value} index={7}>
+                <DocumentaryMovies />
+            </CustomTabPanel>
         </Grid>
 
     );
