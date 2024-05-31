@@ -1,16 +1,20 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import PrimarySearchAppBar from '../components/Navbar'
 import { Button, Grid, TextField, Typography } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 import { getSearchMovie, handleSearch } from '../redux/userSlice'
 import MovieContainer from '../components/MovieContainer'
+import Playlist from './MyPlaylist' 
+import { setCurrentView } from '../redux/PlaylistSlice';
 
 const Home = () => {
     const { searchMovieInput } = useSelector((state) => state.user)
+    const { currentView } = useSelector((state) => state.moviePlaylist)
     const dispatch = useDispatch()
     const searchRef = useRef();
     const key = "2d4765cd";
-    const API = `https://www.omdbapi.com/?apikey=${key}&s=${'raghav'}`
+    const API = `https://www.omdbapi.com/?apikey=${key}&s=${searchMovieInput}`
+    // const [currentView, setCurrentView] = useState('Movie'); 
 
     useEffect(() => {
         searchMovie();
@@ -35,8 +39,12 @@ const Home = () => {
         const searchValue = searchRef.current.value;
         console.log(searchMovie)
         dispatch(handleSearch(searchValue));
+        dispatch(setCurrentView('Movie')); // Set the view to "Movie" when search button is clicked
     };
 
+    const handlePlaylistClick = () => {
+        dispatch(setCurrentView('Playlist')); // Set the view to "Playlist" when playlist button is clicked
+    };
 
     return (
         <>
@@ -57,17 +65,23 @@ const Home = () => {
                                 onClick={handleSearchClick}
                             >search</Button>
                         </Grid>
-
+                         <Grid>
+                         <Button sx={{ height: '100%',marginTop:4, backgroundColor: '#E50914', color: '#fff', padding: 1.9 }}
+                            onClick={handlePlaylistClick} // Add onClick handler
+                            >My Playlist</Button>
+                         </Grid>
                         <Grid item marginTop={15} container justifyContent='center' alignItems='center'>
-                            <MovieContainer />
+                            {currentView === 'Movie' ? ( // Conditionally render MovieContainer or Playlist
+                                <MovieContainer />
+                            ) : (
+                                <Playlist />
+                            )}
                         </Grid>
                     </Grid>
                 </Grid>
-
-
             </div>
-            <Grid container sx={{backgroundColor: '#000'}} className='h-screen'>
-fgdfg
+            <Grid container sx={{ backgroundColor: '#000' }} className='h-screen'>
+                fgdfg
             </Grid>
         </>
     )
