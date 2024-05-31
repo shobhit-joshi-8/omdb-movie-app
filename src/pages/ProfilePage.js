@@ -6,7 +6,8 @@ import { TextField, Dialog, DialogActions, DialogContent, DialogTitle } from "@m
 import { Typography, Button, Grid, Avatar } from '@mui/material';
 import { handleUpdateUser, handleUpdateUserDialog, login } from "../redux/userSlice";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import { Link } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
+import PrimarySearchAppBar from '../components/Navbar';
 const ProfilePage = () => {
     const { UpdateUserDialog } = useSelector((state) => state.user.dialogState);
     const { currentUser } = useSelector(state => state.user);
@@ -44,11 +45,8 @@ const ProfilePage = () => {
 
     return (
         <>
-  <Grid container justifyContent="center" sx={{background:"black"}}>
-    <Button component={Link} to="/home" variant="contained" sx={{background:"red"}}>
-        Return to Home
-    </Button>
-</Grid>
+            <PrimarySearchAppBar />
+           
             <Grid container marginLeft={3} marginTop={3} direction='column' sx={{ width: { xs: '80%', md: '40%', lg: '30%' } }}>
                 <Grid item marginBottom={2}><Typography variant='h5'>Account Settings</Typography></Grid>
                 <Grid item container direction='column' gap={2} marginLeft={2}>
@@ -84,7 +82,7 @@ const ProfilePage = () => {
 
                 </Grid>
             </Grid>
-            
+
             <Dialog open={UpdateUserDialog} onClose={handleDialogClose}>
                 <Formik
                     initialValues={{

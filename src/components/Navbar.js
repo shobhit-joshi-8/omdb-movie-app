@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
+import HomeIcon from '@mui/icons-material/Home';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import MoreIcon from '@mui/icons-material/MoreVert';
@@ -75,6 +75,10 @@ export default function PrimarySearchAppBar() {
         navigate('/profile');
     };
 
+    const handleHomePage = () => {
+        navigate('/home');
+    }
+
     const handleProfileMenuOpen = (event) => {
         setAnchorEl(event.currentTarget);
     };
@@ -109,6 +113,10 @@ export default function PrimarySearchAppBar() {
             open={isMenuOpen}
             onClose={handleMenuClose}
         >
+            <MenuItem onClick={handleHomePage}>
+                <HomeIcon fontSize='medium' sx={{ color: 'red' }} />
+                Home
+            </MenuItem >
             <MenuItem onClick={handleProfilePage}>
                 <AccountCircle fontSize='medium' sx={{ color: 'red' }} />
                 Profile
@@ -136,6 +144,18 @@ export default function PrimarySearchAppBar() {
             open={isMobileMenuOpen}
             onClose={handleMobileMenuClose}
         >
+            <MenuItem onClick={handleHomePage}>
+                <IconButton
+                    size="large"
+                    aria-label="account of current user"
+                    aria-controls="primary-search-account-menu"
+                    aria-haspopup="true"
+                    color="inherit"
+                >
+                    <HomeIcon />
+                </IconButton>
+                <p>Home</p>
+            </MenuItem>
             <MenuItem onClick={handleProfilePage}>
                 <IconButton
                     size="large"
