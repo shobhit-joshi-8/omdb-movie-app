@@ -45,8 +45,31 @@ const MovieCard = ({ item }) => {
                         <Typography variant='h5' className="text-lg text-gray-900 font-medium title-font mb-4">{item?.Year}</Typography>
                     </Grid>
                     <Grid item container gap={1}>
-                        <Button variant='contained' className='' onClick={() => Navigate(`/movie-details/${item.imdbID}`)} >View Details</Button>
-                        <Button variant='contained' onClick={handleClickOpen} className=''>Add to Playlist</Button>
+                    <Button variant='contained'
+    sx={{
+        background: 'red',
+        '&:hover': {
+            color: 'black',
+            background: 'red', // Maintain the same background color on hover
+        },
+    }}
+    onClick={() => Navigate(`/movie-details/${item.imdbID}`)}
+>
+    View Details
+</Button>
+
+<Button variant='contained'
+    sx={{
+        background: 'red',
+        '&:hover': {
+            color: 'black',
+            background: 'red', 
+        },
+    }}
+    onClick={handleClickOpen}
+>
+    Add to Playlist
+</Button>
                     </Grid>
                 </Grid>
             </Grid>

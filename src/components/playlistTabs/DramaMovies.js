@@ -6,12 +6,11 @@ import { Grid, Typography } from '@mui/material';
 
 const DramaMovies = () => {
     const { moviePlaylist } = useSelector((state) => state.moviePlaylist);
-    console.log(moviePlaylist?.dramaMovies)
     return (
         <>
             {
                 Object.keys(moviePlaylist?.dramaMovies || {}).length <= 0 ?
-                    (<Grid item container xs={12} spacing={2} sx={{ height: '500px' }} justifyContent={'center'} alignItems={'center'}>
+                    (<Grid item container xs={12} spacing={2} sx={{ height: '500px',marginTop:"3px" }} justifyContent={'center'} >
                         <Grid item>
                             <InfoIcon sx={{ color: 'red', fontSize: 40 }} />
                         </Grid>

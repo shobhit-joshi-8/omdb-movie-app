@@ -15,7 +15,6 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { logout } from '../redux/userSlice';
-// import { handleSearch } from '../redux/notesSlice';
 import { useLocation } from 'react-router-dom';
 
 const Search = styled('div')(({ theme }) => ({
@@ -93,10 +92,6 @@ export default function PrimarySearchAppBar() {
         setMobileMoreAnchorEl(event.currentTarget);
     };
 
-    const handleSearchChange = (event) => {
-        // dispatch(handleSearch(event.target.value));
-    };
-
     const menuId = 'primary-search-account-menu';
     const renderMenu = (
         <Menu
@@ -115,11 +110,11 @@ export default function PrimarySearchAppBar() {
             onClose={handleMenuClose}
         >
             <MenuItem onClick={handleProfilePage}>
-                <AccountCircle fontSize='medium' sx={{ color: '#818cf8' }} />
+                <AccountCircle fontSize='medium' sx={{ color: 'red' }} />
                 Profile
             </MenuItem>
             <MenuItem fontSize='medium' onClick={handleLogout}>
-                <ExitToAppIcon sx={{ color: '#818cf8' }} />
+                <ExitToAppIcon sx={{ color: 'red' }} />
                 Log out
             </MenuItem>
         </Menu>
@@ -171,10 +166,9 @@ export default function PrimarySearchAppBar() {
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static" sx={{
-                backgroundColor: 'transparent',
+                backgroundColor: 'black',
                 color: 'red',
                 zIndex: 10,
-                position: 'fixed',
             }}>
                 <Toolbar>
                     {location.pathname === '/home' && (
@@ -188,19 +182,9 @@ export default function PrimarySearchAppBar() {
                             >
                                 OMDB Movie App
                             </Typography>
-                            <Search >
-                                <SearchIconWrapper>
-                                    <SearchIcon />
-                                </SearchIconWrapper>
-                                <StyledInputBase
-                                    placeholder="Search…"
-                                    onChange={handleSearchChange}
-                                    inputProps={{ 'aria-label': 'search' }}
-                                />
-                            </Search>
                         </>
                     )}
-                    {location.pathname === '/movie-details/4524' && (
+                    {/* {location.pathname === '/movie-details/{}' && (
                         <Typography
                             variant="h6"
                             noWrap
@@ -209,7 +193,7 @@ export default function PrimarySearchAppBar() {
                         >
                             Movie Details
                         </Typography>
-                    )}
+                    )} */}
                     <Box sx={{ flexGrow: 1 }} />
                     <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
                         <IconButton

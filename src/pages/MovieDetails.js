@@ -4,11 +4,11 @@ import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid
 import { useDispatch, useSelector } from 'react-redux'
 import { handleMovieDeatails } from '../redux/userSlice'
 import { useParams } from 'react-router-dom'
+import toast from 'react-hot-toast'
 
 const MovieDetails = () => {
     const { movieDetails } = useSelector((state) => state.user)
     const { id } = useParams();
-    console.log(id, 'sdhdghjhg')
     const dispatch = useDispatch();
     const key = "2d4765cd";
     const API = `https://www.omdbapi.com/?apikey=${key}&i=${id}`
@@ -25,17 +25,16 @@ const MovieDetails = () => {
                 "Access-Control-Allow-Credentials": true,
             })
             const data = await response.json();
-            console.log(data)
-            dispatch(handleMovieDeatails(data))
+            dispatch(handleMovieDeatails(data))                             
         } catch (error) {
-            console.log('Error in search api', error)
+            console.log('Error in search api', error);
         }
     }
     return (
         <>
             <PrimarySearchAppBar />
             <div className="relative h-screen w-full flex justify-center ">
-                <img src="assets/hero-img.jpg" alt="hero image" className="h-screen w-full object-cover" />
+                <img src="assets/hero-img.jpg" alt="details" className="h-screen w-full object-cover" />
                 <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black/80 via-transparent to-black/80"></div>
                 <Grid item container justifyContent='center' alignItems='center' className='absolute z-20  top-[20%]'>
                     <Grid item container justifyContent='center' alignItems='center' direction='column' className='' xs={10} lg={12}>

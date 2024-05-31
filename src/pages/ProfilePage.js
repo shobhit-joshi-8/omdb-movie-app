@@ -2,14 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from 'react-redux';
-import { TextField, Dialog, DialogActions, DialogContent, DialogTitle, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
-import { Container, Card, CardContent, Typography, Button, Grid, Avatar, Link } from '@mui/material';
+import { TextField, Dialog, DialogActions, DialogContent, DialogTitle } from "@mui/material";
+import { Typography, Button, Grid, Avatar } from '@mui/material';
 import { handleUpdateUser, handleUpdateUserDialog, login } from "../redux/userSlice";
-import EditIcon from '@mui/icons-material/Edit';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import PrimarySearchAppBar from '../components/Navbar';
-import PersonIcon from '@mui/icons-material/Person';
-
+import { Link } from 'react-router-dom'; 
 const ProfilePage = () => {
     const { UpdateUserDialog } = useSelector((state) => state.user.dialogState);
     const { currentUser } = useSelector(state => state.user);
@@ -47,7 +44,11 @@ const ProfilePage = () => {
 
     return (
         <>
-            <PrimarySearchAppBar/>
+  <Grid container justifyContent="center" sx={{background:"black"}}>
+    <Button component={Link} to="/home" variant="contained" sx={{background:"red"}}>
+        Return to Home
+    </Button>
+</Grid>
             <Grid container marginLeft={3} marginTop={3} direction='column' sx={{ width: { xs: '80%', md: '40%', lg: '30%' } }}>
                 <Grid item marginBottom={2}><Typography variant='h5'>Account Settings</Typography></Grid>
                 <Grid item container direction='column' gap={2} marginLeft={2}>
@@ -71,8 +72,8 @@ const ProfilePage = () => {
                     <Grid item container justifyContent='flex-end'>
                         <Button
                             sx={{
-                                border: '1px solid #6437B4', borderRadius: 1, color: '#fff', textTransform: 'capitalize', backgroundColor: '#6437B4', '&:hover': {
-                                    backgroundColor: '#fff', color: '#6437B4',
+                                border: '1px solid red', borderRadius: 1, color: '#fff', textTransform: 'capitalize', backgroundColor: 'red', '&:hover': {
+                                    backgroundColor: '#fff', color: 'red',
                                 },
                             }}
                             onClick={() => handleUpdate(currentUser)}
@@ -97,7 +98,7 @@ const ProfilePage = () => {
                         <Form>
                             <DialogTitle>
                                 <Grid item container justifyContent="center" alignItems="center" direction='column'>
-                                    <Avatar sx={{ bgcolor: '#6437B4', height: '50px', width: '50px' }} >
+                                    <Avatar sx={{ bgcolor: 'red', height: '50px', width: '50px' }} >
                                         <AccountCircleIcon fontSize='large' sx={{ color: '#fff' }} />
                                     </Avatar>
                                     Update Profile
@@ -164,8 +165,8 @@ const ProfilePage = () => {
                                     type="submit"
                                     disabled={formik.isSubmitting}
                                     sx={{
-                                        border: '1px solid #6437B4', borderRadius: 1, color: '#fff', textTransform: 'capitalize', backgroundColor: '#6437B4', '&:hover': {
-                                            backgroundColor: '#fff', color: '#6437B4',
+                                        border: '1px solid red', borderRadius: 1, color: '#fff', textTransform: 'capitalize', backgroundColor: 'red', '&:hover': {
+                                            backgroundColor: '#fff', color: 'red',
                                         },
                                     }}
                                 >

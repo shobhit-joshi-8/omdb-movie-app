@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import PrimarySearchAppBar from '../components/Navbar'
 import { Button, Grid, TextField, Typography } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
@@ -18,7 +18,6 @@ const Home = () => {
     const searchRef = useRef();
     const key = "2d4765cd";
     const API = `https://www.omdbapi.com/?apikey=${key}&s=${searchMovieInput}`
-    // const [currentView, setCurrentView] = useState('Movie'); 
 
     useEffect(() => {
         searchMovie();
@@ -32,7 +31,6 @@ const Home = () => {
                 "Access-Control-Allow-Credentials": true,
             })
             const data = await response.json();
-            console.log(data)
             dispatch(getSearchMovie(data.Search))
         } catch (error) {
             console.log('Error in search api', error)
@@ -41,7 +39,6 @@ const Home = () => {
 
     const handleSearchClick = () => {
         const searchValue = searchRef.current.value;
-        console.log(searchMovie)
         dispatch(handleSearch(searchValue));
         dispatch(setCurrentView('Movie')); // Set the view to "Movie" when search button is clicked
     };
@@ -54,9 +51,9 @@ const Home = () => {
         <>
             <PrimarySearchAppBar />
             <div className="relative h-screen w-full flex justify-center ">
-                <img src="assets/hero-img.jpg" alt="hero image" className="h-screen w-full object-cover" />
+                <img src="assets/hero-img.jpg" alt="login" className="h-screen w-full object-cover" />
                 <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black/80 via-transparent to-black/80"></div>
-                <Grid item container justifyContent='center' alignItems='center' className='absolute z-20  top-[20%]'>
+                <Grid item container justifyContent='center' alignItems='center' className='absolute z-20  top-[11%]'>
                     <Grid item container justifyContent='center' alignItems='center' direction='column' className='' xs={10} lg={12}>
                         <Typography variant='h3' sx={{ color: '#fff' }}>
                             Unlimited movies, TV shows and more
@@ -65,27 +62,31 @@ const Home = () => {
                             <TextField id="serach-movie" type="search" placeholder='Search Movie...' defaultValue={searchMovieInput} sx={{ backgroundColor: '#fff', borderRadius: 2, width: 400 }}
                                 inputRef={searchRef}
                             />
-                            <Button sx={{ height: '100%', backgroundColor: '#E50914', color: '#fff', padding: 1.9 }}
-                                onClick={handleSearchClick}
-                            >search</Button>
+<Button
+    sx={{
+        height: '100%',
+        backgroundColor: '#E50914',
+        color: '#fff',
+        padding: 1.9,
+        '&:hover': {
+            backgroundColor: 'black', 
+        },
+    }}
+    onClick={handleSearchClick}
+>
+    Search
+</Button>
                         </Grid>
-                        <Grid>
-                            <Button sx={{ height: '100%', marginTop: 4, backgroundColor: '#E50914', color: '#fff', padding: 1.9 }}
-                                onClick={handlePlaylistClick} // Add onClick handler
+                         <Grid>
+                         <Button sx={{ height: '100%',marginTop:4, backgroundColor: '#E50914', color: '#fff', padding: 1.9 ,
+                                    '&:hover': {
+                                        backgroundColor: 'black', 
+                                    },
+                         }}
+                            onClick={handlePlaylistClick} 
                             >My Playlist</Button>
-                        </Grid>
-                        {
-                            !user?.movie &&
-                                (<Grid item container xs={12} spacing={2} sx={{ height: '500px' }} justifyContent={'center'} marginTop={10}>
-                                    <Grid item>
-                                        <InfoIcon sx={{ color: 'red', fontSize: 40 }} />
-                                    </Grid>
-                                    <Grid item>
-                                        <Typography fontSize={18} fontWeight={600} sx={{ color: 'red' }}>No Movie Found</Typography>
-                                    </Grid>
-                                </Grid>) 
-                        }
-                        <Grid item marginTop={15} container justifyContent='center' alignItems='center'>
+                         </Grid>
+                        <Grid item marginTop={12} container justifyContent='center' alignItems='center'>
                             {currentView === 'Movie' ? ( // Conditionally render MovieContainer or Playlist
                                 <MovieContainer />
                             ) : (

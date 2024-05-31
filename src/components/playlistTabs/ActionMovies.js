@@ -6,7 +6,6 @@ import PlayListCard from './PlayListCard';
 import InfoIcon from '@mui/icons-material/Info';
 function ActionMovies() {
     const { moviePlaylist } = useSelector((state) => state.moviePlaylist);
-    // console.log(moviePlaylist?.actionMovies)
     return (
         <>
             {

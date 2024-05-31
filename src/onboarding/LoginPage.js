@@ -52,7 +52,7 @@ const Login = () => {
     return (
         <Grid container className='h-screen w-full'>
             <Grid item xs={12} sm={12} md={6}>
-                <img src='assets/login.png' className='object-cover object-center w-full h-full' alt="Login" />
+                <img src='assets/hero-img.jpg' className='object-cover object-center w-full h-full' alt="Login" />
             </Grid>
             <Grid item xs={12} sm={12} md={6} className='flex justify-center items-center'>
                 <Grid container justifyContent='center' alignItems='center' className='w-full  ' padding={5}>
@@ -120,8 +120,8 @@ const Login = () => {
                                 />
                                 <Button
                                     sx={{
-                                        backgroundColor: '#6437B4', marginTop: 2, paddingBlock: 1.3, borderRadius: 2, textTransform: 'capitalize', letterSpacing: '0.1em', "&:hover": {
-                                            backgroundColor: "#621A75", color: '#fff',
+                                        backgroundColor: 'red', marginTop: 2, paddingBlock: 1.3, borderRadius: 2, textTransform: 'capitalize', letterSpacing: '0.1em', "&:hover": {
+                                            backgroundColor: "red", color: '#fff',
                                         }
                                     }}
                                     type='submit'
@@ -141,7 +141,7 @@ const Login = () => {
                                 </Button>
                                 <Grid item container justifyContent='center' alignItems='center' marginTop={2}>
                                     <span>Don't Have an Account?</span>
-                                    <Link to='/register' style={{ color: '#6437B4', fontWeight: 'bold', }}> Register</Link>
+                                    <Link to='/register' style={{ color: 'red', fontWeight: 'bold', }}> Register</Link>
                                 </Grid>
                             </Form>
                         )}
