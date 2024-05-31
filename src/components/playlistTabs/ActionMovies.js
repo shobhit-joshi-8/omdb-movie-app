@@ -11,7 +11,7 @@ function ActionMovies() {
         <>
             {
                 Object.keys(moviePlaylist?.documentaryMovies || {}).length <= 0 ?
-                    (<Grid item container xs={12} spacing={2} sx={{ height: '500px' }} justifyContent={'center'} alignItems={'center'}>
+                    (<Grid item container xs={12} spacing={2} sx={{ height: '500px' }} justifyContent={'center'} marginTop={3}>
                         <Grid item>
                             <InfoIcon sx={{ color: 'red', fontSize: 40 }} />
                         </Grid>
