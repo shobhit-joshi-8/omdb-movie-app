@@ -63,41 +63,45 @@ export default function BasicTabs() {
                 justifyContent: 'center',
                 alignItems: 'center'
             }}>
-                <Tabs value={value}  onChange={handleChange} variant="scrollable"
-        scrollButtons
-        aria-label="visible arrows tabs example"
-        sx={{
-          [`& .${tabsClasses.scrollButtons}`]: {
-            '&.Mui-disabled': { opacity: 0.3 },
-            backgroundColor: 'white',
-          },
-        }}
-       >
-                    <Tab label="Action Movies" {...a11yProps(0)} sx={{
-                        color: '#fff', fontWeight: 'bold'  
-                    }} />
-                    <Tab label="Comedy Movies" {...a11yProps(0)} sx={{
-                        color: '#fff', fontWeight: 'bold' 
-                    }} />
-                    <Tab label="Drama Movies" {...a11yProps(0)} sx={{
-                         color: '#fff', fontWeight: 'bold' 
-                    }} />
-                    <Tab label="Horror Movies" {...a11yProps(0)} sx={{
-                         color: '#fff', fontWeight: 'bold' 
-                    }} />
-                    <Tab label="Romance Movies" {...a11yProps(0)} sx={{
-                         color: '#fff', fontWeight: 'bold' 
-                    }} />
-                    <Tab label="Science Fiction Movies" {...a11yProps(0)} sx={{
-                        color: '#fff', fontWeight: 'bold' 
-                    }} />
-                    <Tab label="Animation Movies" {...a11yProps(0)} sx={{
-                         color: '#fff', fontWeight: 'bold' 
-                    }} />
-                    <Tab label="Documentary Movies" {...a11yProps(0)} sx={{
-                         color: '#fff', fontWeight: 'bold' 
-                    }} />
-                </Tabs>
+                <Grid container justifyContent='center' alignItems='center'>
+                    <Tabs value={value} onChange={handleChange} variant="scrollable"
+                        scrollButtons
+                        aria-label="visible arrows tabs example"
+                        sx={{
+                            [`& .${tabsClasses.scrollButtons}`]: {
+                                '&.Mui-disabled': { opacity: 0.3 },
+                                backgroundColor: 'white',
+                            },
+                            justifyContent: 'center'
+                        }}
+                    >
+                        <Tab label="Action Movies" {...a11yProps(0)} sx={{
+                            color: '#fff', fontWeight: 'bold'
+                        }} />
+                        <Tab label="Comedy Movies" {...a11yProps(0)} sx={{
+                            color: '#fff', fontWeight: 'bold'
+                        }} />
+                        <Tab label="Drama Movies" {...a11yProps(0)} sx={{
+                            color: '#fff', fontWeight: 'bold'
+                        }} />
+                        <Tab label="Horror Movies" {...a11yProps(0)} sx={{
+                            color: '#fff', fontWeight: 'bold'
+                        }} />
+                        <Tab label="Romance Movies" {...a11yProps(0)} sx={{
+                            color: '#fff', fontWeight: 'bold'
+                        }} />
+                        <Tab label="Science Fiction Movies" {...a11yProps(0)} sx={{
+                            color: '#fff', fontWeight: 'bold'
+                        }} />
+                        <Tab label="Animation Movies" {...a11yProps(0)} sx={{
+                            color: '#fff', fontWeight: 'bold'
+                        }} />
+                        <Tab label="Documentary Movies" {...a11yProps(0)} sx={{
+                            color: '#fff', fontWeight: 'bold'
+                        }} />
+                    </Tabs>
+                </Grid>
+
             </Box>
             <CustomTabPanel value={value} index={0} >
                 <ActionMovies />

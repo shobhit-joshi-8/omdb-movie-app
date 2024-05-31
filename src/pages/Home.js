@@ -4,12 +4,16 @@ import { Button, Grid, TextField, Typography } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 import { getSearchMovie, handleSearch } from '../redux/userSlice'
 import MovieContainer from '../components/MovieContainer'
-import Playlist from './MyPlaylist' 
+import Playlist from './MyPlaylist'
 import { setCurrentView } from '../redux/PlaylistSlice';
+import InfoIcon from '@mui/icons-material/Info';
+
+import PlayListCard from '../components/playlistTabs/PlayListCard'
 
 const Home = () => {
     const { searchMovieInput } = useSelector((state) => state.user)
     const { currentView } = useSelector((state) => state.moviePlaylist)
+    const user = useSelector((state) => state.user)
     const dispatch = useDispatch()
     const searchRef = useRef();
     const key = "2d4765cd";
@@ -65,11 +69,22 @@ const Home = () => {
                                 onClick={handleSearchClick}
                             >search</Button>
                         </Grid>
-                         <Grid>
-                         <Button sx={{ height: '100%',marginTop:4, backgroundColor: '#E50914', color: '#fff', padding: 1.9 }}
-                            onClick={handlePlaylistClick} // Add onClick handler
+                        <Grid>
+                            <Button sx={{ height: '100%', marginTop: 4, backgroundColor: '#E50914', color: '#fff', padding: 1.9 }}
+                                onClick={handlePlaylistClick} // Add onClick handler
                             >My Playlist</Button>
-                         </Grid>
+                        </Grid>
+                        {
+                            !user?.movie &&
+                                (<Grid item container xs={12} spacing={2} sx={{ height: '500px' }} justifyContent={'center'} marginTop={10}>
+                                    <Grid item>
+                                        <InfoIcon sx={{ color: 'red', fontSize: 40 }} />
+                                    </Grid>
+                                    <Grid item>
+                                        <Typography fontSize={18} fontWeight={600} sx={{ color: 'red' }}>No Movie Found</Typography>
+                                    </Grid>
+                                </Grid>) 
+                        }
                         <Grid item marginTop={15} container justifyContent='center' alignItems='center'>
                             {currentView === 'Movie' ? ( // Conditionally render MovieContainer or Playlist
                                 <MovieContainer />

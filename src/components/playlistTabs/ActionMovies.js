@@ -10,7 +10,7 @@ function ActionMovies() {
     return (
         <>
             {
-                Object.keys(moviePlaylist?.documentaryMovies || {}).length <= 0 ?
+                Object.keys(moviePlaylist?.actionMovies || {}).length <= 0 ?
                     (<Grid item container xs={12} spacing={2} sx={{ height: '500px' }} justifyContent={'center'} marginTop={3}>
                         <Grid item>
                             <InfoIcon sx={{ color: 'red', fontSize: 40 }} />
@@ -18,7 +18,7 @@ function ActionMovies() {
                         <Grid item>
                             <Typography fontSize={18} fontWeight={600} sx={{ color: 'red' }}>No Movies added in Playlist</Typography>
                         </Grid>
-                    </Grid>) : (<PlayListCard moviePlaylist={moviePlaylist?.documentaryMovies} />)
+                    </Grid>) : (<PlayListCard moviePlaylist={moviePlaylist?.actionMovies} />)
             }
         </>
     );
