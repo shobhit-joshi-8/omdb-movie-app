@@ -8,23 +8,22 @@ function ActionMovies() {
   // const actionMovies = Object.values(moviePlaylist).flat();
   console.log(moviePlaylist?.actionMovies)
   return (
-    <Grid container width='80%' className="slider-container">
-      {moviePlaylist?.actionMovies?.map((movie, index) => (
+    <Grid container width='80%'>
+      {moviePlaylist?.actionMovies?.map((item, index) => (
         <Card key={index} sx={{ maxWidth: 345 }}>
           <CardActionArea>
             <CardMedia
               component="img"
               height="140"
-            //   image={movie.Poster}
-            //   alt={movie.Title}
-            />
-            
+              image={item?.Poster}
+              alt={item?.Title}
+            />           
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                {/* {movie.Year} */}
+                {item?.Year}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                {/* {movie.description} */}
+                {item?.Title}
               </Typography>
             </CardContent>
           </CardActionArea>
