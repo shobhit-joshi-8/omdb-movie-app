@@ -1,5 +1,5 @@
 // MovieCard.js
-import { Button, Grid, Typography, Dialog, DialogTitle, DialogContent, DialogActions, Select, MenuItem } from '@mui/material';
+import { Button, Grid, Typography, Dialog, DialogTitle, DialogContent, DialogActions, Select, MenuItem, TextField } from '@mui/material';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addMovieToPlaylist } from '../redux/PlaylistSlice';
@@ -54,27 +54,28 @@ const MovieCard = ({ item }) => {
             <Dialog open={open} onClose={handleClose}>
                 <DialogTitle>Select Playlist</DialogTitle>
                 <DialogContent>
-                    <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value='indore'
-                        label="Age"
+                    <TextField
+                        name='selectplaylist'
+                        variant='outlined'
+                        select
+                        type='text'
+                        defaultValue={1}
                         onChange={(e) => setSelectedPlaylist(e.target.value)}
+                        fullWidth
+                        SelectProps={{
+                            sx: {
+                                '& .MuiSelect-select': {
+                                    paddingTop: '14px'
+                                }
+                            }
+                        }}
                     >
-                        <MenuItem value={10}>Ten</MenuItem>
-                        <MenuItem value={20}>Twenty</MenuItem>
-                        <MenuItem value={30}>Thirty</MenuItem>
-                    </Select>
-                    <select
-                        value={selectedPlaylist}
-                        onChange={(e) => setSelectedPlaylist(e.target.value)}
-                        className='w-full p-2 border border-gray-400 rounded'
-                    >
-                        <option value={null} disabled>Select a playlist</option>
+                        <MenuItem value={1} disabled>Select Plyalist</MenuItem>
                         {playlistOptions.map((playlist) => (
-                            <option key={playlist.name} defaultValue={playlist.label} value={playlist.name}>{playlist.label}</option>
+                            <MenuItem key={playlist.name} value={playlist.name}>{playlist.label}</MenuItem>
                         ))}
-                    </select>
+                    </TextField>
+
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose}>Cancel</Button>

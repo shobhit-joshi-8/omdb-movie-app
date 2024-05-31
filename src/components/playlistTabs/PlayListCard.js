@@ -1,13 +1,10 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { Card, CardContent, CardMedia, Typography, Grid } from '@mui/material';
-import { Button, CardActionArea, CardActions } from '@mui/material';
+import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Typography } from '@mui/material'
+import React from 'react'
 
-function ActionMovies() {
-    const { moviePlaylist } = useSelector((state) => state.moviePlaylist);
-    console.log(moviePlaylist?.actionMovies)
-    return (
-        <Grid container width='100%' gap={5}>
+const PlayListCard = () => {
+  return (
+    <>
+         <Grid container width='100%' gap={5}>
             {moviePlaylist?.actionMovies?.map((item, index) => (
                 <Card key={index} sx={{ maxWidth: 345 }}>
                     <CardActionArea>
@@ -34,7 +31,8 @@ function ActionMovies() {
                 </Card>
             ))}
         </Grid>
-    );
+    </>
+  )
 }
 
-export default ActionMovies;
+export default PlayListCard
