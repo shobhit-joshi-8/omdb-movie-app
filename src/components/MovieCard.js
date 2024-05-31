@@ -1,5 +1,5 @@
 // MovieCard.js
-import { Button, Grid, Typography, Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material';
+import { Button, Grid, Typography, Dialog, DialogTitle, DialogContent, DialogActions, Select, MenuItem } from '@mui/material';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addMovieToPlaylist } from '../redux/PlaylistSlice';
@@ -24,14 +24,14 @@ const MovieCard = ({ item }) => {
     };
 
     const playlistOptions = [
-        { name: 'actionMovies' },
-        { name: 'Comedy Movies' },
-        { name: 'Drama Movies' },
-        { name: 'Horror Movies' },
-        { name: 'Romance Movies' },
-        { name: 'Science Fiction Movies' },
-        { name: 'Animation Movies' },
-        { name: 'Documentary Movies' },
+        { name: 'actionMovies', label: 'Action Movies' },
+        { name: 'comedyMovies', label: 'Comedy Movies' },
+        { name: 'dramaMovies', label: 'Drama Movies' },
+        { name: 'horrorMovies', label: 'Drama Movies' },
+        { name: 'romanceMovies', label: 'Drama Movies' },
+        { name: 'scienceFictionMovies', label: 'Drama Movies' },
+        { name: 'animationMovies', label: 'Drama Movies' },
+        { name: 'documentaryMovies', label: 'Drama Movies' },
     ];
 
     const Navigate = useNavigate()
@@ -45,7 +45,7 @@ const MovieCard = ({ item }) => {
                         <Typography variant='h5' className="text-lg text-gray-900 font-medium title-font mb-4">{item?.Year}</Typography>
                     </Grid>
                     <Grid item container gap={1}>
-                        <Button variant='contained' className='' onClick={()=> Navigate(`/movie-details/${item.imdbID}`)} >View Details</Button>
+                        <Button variant='contained' className='' onClick={() => Navigate(`/movie-details/${item.imdbID}`)} >View Details</Button>
                         <Button variant='contained' onClick={handleClickOpen} className=''>Add to Playlist</Button>
                     </Grid>
                 </Grid>
@@ -54,14 +54,25 @@ const MovieCard = ({ item }) => {
             <Dialog open={open} onClose={handleClose}>
                 <DialogTitle>Select Playlist</DialogTitle>
                 <DialogContent>
+                    <Select
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        value='indore'
+                        label="Age"
+                        onChange={(e) => setSelectedPlaylist(e.target.value)}
+                    >
+                        <MenuItem value={10}>Ten</MenuItem>
+                        <MenuItem value={20}>Twenty</MenuItem>
+                        <MenuItem value={30}>Thirty</MenuItem>
+                    </Select>
                     <select
                         value={selectedPlaylist}
                         onChange={(e) => setSelectedPlaylist(e.target.value)}
                         className='w-full p-2 border border-gray-400 rounded'
                     >
-                        <option value={null}>Select a playlist</option>
+                        <option value={null} disabled>Select a playlist</option>
                         {playlistOptions.map((playlist) => (
-                            <option key={playlist.name} value={playlist.name}>{playlist.name}</option>
+                            <option key={playlist.name} defaultValue={playlist.label} value={playlist.name}>{playlist.label}</option>
                         ))}
                     </select>
                 </DialogContent>
