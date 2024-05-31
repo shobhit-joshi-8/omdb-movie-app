@@ -7,6 +7,10 @@ function ActionMovies() {
     const { moviePlaylist } = useSelector((state) => state.moviePlaylist);
     console.log(moviePlaylist?.actionMovies)
     return (
+      <>
+      <Button size="small" color="primary" variant='contained'>
+      Share
+  </Button>
         <Grid container width='100%' gap={5}>
             {moviePlaylist?.actionMovies?.map((item, index) => (
                 <Card key={index} sx={{ maxWidth: 345 }}>
@@ -27,13 +31,12 @@ function ActionMovies() {
                         </CardContent>
                     </CardActionArea>
                     <CardActions>
-                        <Button size="small" color="primary">
-                            Share
-                        </Button>
+
                     </CardActions>
                 </Card>
             ))}
         </Grid>
+        </>
     );
 }
 

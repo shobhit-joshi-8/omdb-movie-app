@@ -27,11 +27,11 @@ const MovieCard = ({ item }) => {
         { name: 'actionMovies', label: 'Action Movies' },
         { name: 'comedyMovies', label: 'Comedy Movies' },
         { name: 'dramaMovies', label: 'Drama Movies' },
-        { name: 'horrorMovies', label: 'Drama Movies' },
-        { name: 'romanceMovies', label: 'Drama Movies' },
-        { name: 'scienceFictionMovies', label: 'Drama Movies' },
-        { name: 'animationMovies', label: 'Drama Movies' },
-        { name: 'documentaryMovies', label: 'Drama Movies' },
+        { name: 'horrorMovies', label: 'Horror Movies' },
+        { name: 'romanceMovies', label: 'Romance Movies' },
+        { name: 'scienceFictionMovies', label: 'Science Fiction Movies' },
+        { name: 'animationMovies', label: 'Animation Movies' },
+        { name: 'documentaryMovies', label: 'Documentary Movies' },
     ];
 
     const Navigate = useNavigate()

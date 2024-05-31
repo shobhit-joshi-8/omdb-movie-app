@@ -1,6 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import Tabs from '@mui/material/Tabs';
+import Tabs, { tabsClasses } from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
@@ -55,35 +55,39 @@ export default function BasicTabs() {
                 justifyContent: 'center',
                 alignItems: 'center'
             }}>
-                <Tabs value={value} centered onChange={handleChange} aria-label="basic tabs example" sx={{
-                    '& .MuiTabs-indicator': {
-                        backgroundColor: 'red',
-                        
-                    },
-                }}>
-                    <Tab label="Item One" {...a11yProps(0)} sx={{
-                        color: '#fff', fontWeight: 'bold'   // Set the color of the first tab to red
+                <Tabs value={value} centered onChange={handleChange} variant="scrollable"
+        scrollButtons
+        aria-label="visible arrows tabs example"
+        sx={{
+          [`& .${tabsClasses.scrollButtons}`]: {
+            '&.Mui-disabled': { opacity: 0.3 },
+            backgroundColor: 'white',
+          },
+        }}
+       >
+                    <Tab label="Action Movies" {...a11yProps(0)} sx={{
+                        color: '#fff', fontWeight: 'bold'  
                     }} />
-                    <Tab label="Item One" {...a11yProps(0)} sx={{
-                        color: 'red'  // Set the color of the first tab to red
+                    <Tab label="Comedy Movies" {...a11yProps(0)} sx={{
+                        color: '#fff', fontWeight: 'bold' 
                     }} />
-                    <Tab label="Item One" {...a11yProps(0)} sx={{
-                        color: 'red'  // Set the color of the first tab to red
+                    <Tab label="Drama Movies" {...a11yProps(0)} sx={{
+                         color: '#fff', fontWeight: 'bold' 
                     }} />
-                    <Tab label="Item One" {...a11yProps(0)} sx={{
-                        color: 'red'  // Set the color of the first tab to red
+                    <Tab label="Horror Movies" {...a11yProps(0)} sx={{
+                         color: '#fff', fontWeight: 'bold' 
                     }} />
-                    <Tab label="Item One" {...a11yProps(0)} sx={{
-                        color: 'red'  // Set the color of the first tab to red
+                    <Tab label="Romance Movies" {...a11yProps(0)} sx={{
+                         color: '#fff', fontWeight: 'bold' 
                     }} />
-                    <Tab label="Item One" {...a11yProps(0)} sx={{
-                        color: 'red'  // Set the color of the first tab to red
+                    <Tab label="Science Fiction Movies" {...a11yProps(0)} sx={{
+                        color: '#fff', fontWeight: 'bold' 
                     }} />
-                    <Tab label="Item One" {...a11yProps(0)} sx={{
-                        color: 'red'  // Set the color of the first tab to red
+                    <Tab label="Animation Movies" {...a11yProps(0)} sx={{
+                         color: '#fff', fontWeight: 'bold' 
                     }} />
-                    <Tab label="Item One" {...a11yProps(0)} sx={{
-                        color: 'red'  // Set the color of the first tab to red
+                    <Tab label="Documentary Movies" {...a11yProps(0)} sx={{
+                         color: '#fff', fontWeight: 'bold' 
                     }} />
                 </Tabs>
             </Box>
